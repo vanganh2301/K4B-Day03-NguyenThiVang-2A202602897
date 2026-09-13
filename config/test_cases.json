@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, bạn có thể giới thiệu quy định mượn trả tài liệu và thời gian phục vụ của Thư viện VinUni không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt/kiến thức cơ bản về quy định và giờ mở cửa của thư viện, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu thông tin, tình trạng mượn trả và vị trí kệ của cuốn sách có mã BOOK_AI_2026.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu tài liệu, tự động phát sinh Tool Call tra cứu sách với mã BOOK_AI_2026.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "book_renewal",
+    "question": "Tôi muốn gia hạn cuốn sách mã BOOK_AI_2026 cho sinh viên mã SV2026001 thêm 14 ngày đến ngày 30/09/2026.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call gia hạn mượn sách với đúng mã tài liệu BOOK_AI_2026, mã sinh viên SV2026001 và thời gian gia hạn.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Hãy kiểm tra danh sách sách đang mượn của sinh viên SV2026001, nếu có cuốn sách nào sắp đến hạn trả thì tự động gia hạn giúp tôi.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct đa bước: Đầu tiên tra cứu hồ sơ và danh sách sách mượn của sinh viên SV2026001, phát hiện cuốn sách sắp đến hạn trả, sau đó tiến hành gọi tool gia hạn sách.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy tra cứu vị trí và tình trạng mượn cuốn sách có mã BOOK_9999999 trong thư viện.",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool tra cứu sách và đưa ra phản hồi lịch sự, chính xác thông báo không tìm thấy cuốn sách này trong hệ thống thư viện, không bịa đặt dữ liệu.",
+    "complexity": "Medium"
+  }
+]
